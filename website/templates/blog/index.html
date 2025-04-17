@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% block header %}
+    <h1>Main {{title|upper}}</h1>
+    <p>Number: {{number}}</p>
+{% endblock %}
+
+{% block main %}
+    <p>List {{data}}</p>
+    <ul>
+        {% for item in data %}
+        <li>{{item}}</li>
+        {% endfor %}
+    </ul>
+    {% if user.is_authenticated %}
+    <p>Hello,{{ user.username}}</p>
+    {% else %}
+    <p>Hello quest</p>
+    {% endif %}
+    <h2>rand num {{randnum}}</h2>
+
+    <p>{{text|truncatewords:4}}</p>
+
+    <h3>Today: {{ now|date:"d m y"}}</h3>
+
+    <h3>{% now "d/m/y H:i:s"%}</h3>
+{% endblock %}
