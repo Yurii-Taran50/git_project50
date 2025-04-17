@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<h2>Профиль пользователя</h2>
+<p><strong>Имя:</strong> {{ request.user.username }}</p>
+<p><strong>Email:</strong> {{ request.user.email }}</p>
+<p><strong>Телефон:</strong> {{ user_profile.phone }}</p>
+<p><strong>Город:</strong> {{ user_profile.city }}</p>
+<p><strong>Адрес:</strong> {{ user_profile.address }}</p>
+
+{% if user_profile.avatar %}
+    <img src="{{ user_profile.avatar.url }}" alt="Аватарка" width="150">
+{% else %}
+    <p>Аватарка не загружена</p>
+{% endif %}
+{% endblock %}
+
+
